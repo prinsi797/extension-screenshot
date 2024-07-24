@@ -9,29 +9,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
     }
+    header {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+    }
+    #downloadBtn {
+      padding: 10px 20px;
+      border: none;
+      background-color: #fff;
+      color: #4CAF50;
+      cursor: pointer;
+    }
     #canvasContainer {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
     }
     canvas {
       border: 1px solid #000;
     }
-    #downloadBtn {
-      margin: 10px;
-      padding: 10px 20px;
-      border: none;
-      background-color: #4CAF50;
-      color: #fff;
-      cursor: pointer;
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      background-color: #2196F3;
     }
     #editControls {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
+      width: 100%;
     }
     #iconToolbar, #drawTools {
       display: flex;
@@ -42,39 +60,59 @@
       padding: 10px;
       border: none;
       cursor: pointer;
-      background-color: #2196F3;
-      color: #fff;
+      background-color: #fff;
+      color: #2196F3;
     }
     .control-btn.selected, .icon-btn.selected {
       background-color: #0b7dda;
+    }
+    #iconsContainer {
+      display: none;
+      width: 100%;
+      justify-content: center;
+      background-color: #f0f0f0;
+      padding: 10px 0;
+    }
+    #icons {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    #icons .icon-btn {
+      background-color: #4CAF50;
     }
   </style>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
   </head>
   <body>
-    <button id="downloadBtn">Download</button>
+    <header>
+      <button id="downloadBtn">Download</button>
+    </header>
     <div id="canvasContainer">
       <canvas id="imageCanvas"></canvas>
     </div>
-    <div id="editControls">
-      <div id="iconToolbar">
-        <button id="iconBtn" class="control-btn">Icons</button>
-        <div id="icons" style="display: none;">
-          <!-- Add your icons here -->
-          <button class="icon-btn" data-icon="star">★</button>
-          <button class="icon-btn" data-icon="arrow-left">←</button>
-          <button class="icon-btn" data-icon="arrow-right">→</button>
-          <button class="icon-btn" data-icon="arrow-bottom">↓</button>
-          <button class="icon-btn" data-icon="heart">♥</button>
-          <!-- Add more icons as needed -->
-        </div>
-      </div>
-      <div id="drawTools">
-        <button id="pencilBtn" class="control-btn">Pencil</button>
-        <button id="circleBtn" class="control-btn">Circle</button>
+    <div id="iconsContainer">
+      <div id="icons">
+        <button class="icon-btn" data-icon="star">★</button>
+        <button class="icon-btn" data-icon="arrow-left">←</button>
+        <button class="icon-btn" data-icon="arrow-right">→</button>
+        <button class="icon-btn" data-icon="arrow-bottom">↓</button>
+        <button class="icon-btn" data-icon="heart">♥</button>
       </div>
     </div>
+    <footer>
+      <div id="editControls">
+        <div id="iconToolbar">
+          <button id="iconBtn" class="control-btn">Icons</button>
+        </div>
+        <div id="drawTools">
+          <button id="pencilBtn" class="control-btn">Pencil</button>
+          <button id="circleBtn" class="control-btn">Circle</button>
+        </div>
+      </div>
+    </footer>
+    <script src="toggleIcons.js"></script>
     <script src="edit.js"></script>
   </body>
 </html>
