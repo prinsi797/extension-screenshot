@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Screenshot</title>
+    <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    #canvasContainer {
+      position: relative;
+    }
+    canvas {
+      border: 1px solid #000;
+    }
+    #downloadBtn {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+    #editControls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    #iconToolbar, #drawTools {
+      display: flex;
+      margin: 5px;
+    }
+    .control-btn, .icon-btn {
+      margin: 0 5px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #2196F3;
+      color: #fff;
+    }
+    .control-btn.selected, .icon-btn.selected {
+      background-color: #0b7dda;
+    }
+  </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+  </head>
+  <body>
+    <button id="downloadBtn">Download</button>
+    <div id="canvasContainer">
+      <canvas id="imageCanvas"></canvas>
+    </div>
+    <div id="editControls">
+      <div id="iconToolbar">
+        <button id="iconBtn" class="control-btn">Icons</button>
+        <div id="icons" style="display: none;">
+          <!-- Add your icons here -->
+          <button class="icon-btn" data-icon="star">★</button>
+          <button class="icon-btn" data-icon="arrow-left">←</button>
+          <button class="icon-btn" data-icon="arrow-right">→</button>
+          <button class="icon-btn" data-icon="arrow-bottom">↓</button>
+          <button class="icon-btn" data-icon="heart">♥</button>
+          <!-- Add more icons as needed -->
+        </div>
+      </div>
+      <div id="drawTools">
+        <button id="pencilBtn" class="control-btn">Pencil</button>
+        <button id="circleBtn" class="control-btn">Circle</button>
+      </div>
+    </div>
+    <script src="edit.js"></script>
+  </body>
+</html>
